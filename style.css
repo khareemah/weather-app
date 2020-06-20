@@ -3,7 +3,7 @@
 }
 body {
   margin: 0;
-  padding: 0;
+  padding: 30px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,16 +18,13 @@ body {
   height: 30vh;
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .temperature {
   flex-direction: column;
 }
-.location,
-.temperature {
-  border: 2px solid red;
-}
+
 .degree-section {
   display: flex;
   align-items: center;
