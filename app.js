@@ -1,3 +1,8 @@
+let locationTimezone = document.querySelector(".location-timezone");
+let temperatureDegree = document.querySelector(".temperature-degree");
+let temperatureDesciption = document.querySelector(".temperature-description");
+let degreeSection = document.querySelector(".degree-section");
+let tempSpan = document.querySelector(".degree-section span");
 window.addEventListener("load", function() {
   let long;
   let lat;
@@ -5,12 +10,27 @@ window.addEventListener("load", function() {
     navigator.geolocation.getCurrentPosition(position => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
-      console.log(long, lat);
-      let api = `https://api.weatherbit.io/v2.0/current?lat=${lat}long=${long},NC&key=a05e202da04d4432a742b43238169bcc`;
+      let api = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${long}&key=a05e202da04d4432a742b43238169bcc`;
       fetch(api)
         .then(res => res.json())
-        .then(data => {
-          console.log(data);
+        .then(result => {
+          let { app_temp, timezone, weather } = result.data[0];
+          let { description, icon } = weather;
+          temperatureDegree.textContent = app_temp;
+          temperatureDesciption.textContent = description;
+          locationTimezone.textContent = timezone;
+          this.console.log(result.data[0]);
+
+          degreeSection.addEventListener("click", function() {
+            let celcius = ((app_temp - 32) * 5) / 9;
+            if (tempSpan.textContent === "F") {
+              tempSpan.textContent = "C";
+              temperatureDegree.textContent = celcius.toFixed(2);
+            } else {
+              tempSpan.textContent = "F";
+              temperatureDegree.textContent = app_temp;
+            }
+          });
         });
     });
   }
