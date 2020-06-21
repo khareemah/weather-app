@@ -3,7 +3,6 @@
 }
 body {
   margin: 0;
-  padding: 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,6 +15,7 @@ body {
 .location-timezone {
   height: 15vh;
   text-align: center;
+  margin: 0;
 }
 .temperature {
   height: 30vh;
@@ -23,8 +23,6 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-.temperature {
   flex-direction: column;
 }
 
