@@ -19,7 +19,6 @@ window.addEventListener("load", function() {
           temperatureDegree.textContent = app_temp;
           temperatureDesciption.textContent = description;
           locationTimezone.textContent = timezone;
-          this.console.log(result.data[0]);
 
           degreeSection.addEventListener("click", function() {
             let celcius = ((app_temp - 32) * 5) / 9;
@@ -33,5 +32,7 @@ window.addEventListener("load", function() {
           });
         });
     });
+  } else {
+    alert("Geolocation isnt supported");
   }
 });
