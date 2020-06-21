@@ -21,10 +21,10 @@ window.addEventListener("load", function() {
           locationTimezone.textContent = timezone;
 
           degreeSection.addEventListener("click", function() {
-            let celcius = ((app_temp - 32) * 5) / 9;
+            let celsius = ((app_temp - 32) * 5) / 9;
             if (tempSpan.textContent === "F") {
               tempSpan.textContent = "C";
-              temperatureDegree.textContent = celcius.toFixed(2);
+              temperatureDegree.textContent = Math.round(celsius);
             } else {
               tempSpan.textContent = "F";
               temperatureDegree.textContent = app_temp;
